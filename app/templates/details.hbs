@@ -1,0 +1,21 @@
+{{log model}}
+<div class="person-wrapper-details">
+<h1>{{model.personDetails.name}}</h1>
+<ul>
+    <li>Height: {{model.personDetails.height}}</li>
+    <li>Gender: {{model.personDetails.gender}}</li>
+    <li>Films:</li>
+    <ul class="inner">
+        {{!-- {{#each model.personFilms as |film index|}}
+        <li>{{film.title}}</li>
+        {{/each}} --}}
+
+        {{details-films model=model}}
+    </ul>
+        
+</ul>
+<div class="button-wrapper">
+<button class="btn btn-nav" {{action 'goBack'}}>back</button>
+</div>
+
+</div>

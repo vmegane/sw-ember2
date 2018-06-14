@@ -1,0 +1,39 @@
+{{log model}}
+
+<div class="wrapper">
+     {{#each model.poepleList as |person index| }}
+            <div class="person-wrapper theme-{{index}}">
+                <h2>{{person.name}}</h2>
+                <div class="person-wrapper-records">
+                    <div class="person-item">
+                        <span class="label"> height </span>
+                        <span class="content">{{person.height}}</span></div>
+                    <div class="person-item">
+                        <span class="label">gender</span>
+                        <span class="content"> {{person.gender}}</span> </div>
+                    <div class="person-item btn-wrapper"> {{#link-to 'details' person.url}}
+                        <button class="btn btn-details">details</button> {{/link-to}} </div>
+
+                </div>
+
+            </div>
+
+            {{/each}} 
+
+<div class="btn-group">
+
+
+{{#if firstPage}}
+    <button class="btn btn-nav prev disabled">prev</button>  
+{{else}}
+    <button class="btn btn-nav prev"{{action "previousPage" model.pageIds.prevPage}}>prev</button> 
+{{/if}}
+    
+{{#if lastPage}}
+<button class="btn btn-nav next disabled">next</button>
+{{else}}
+<button class="btn btn-nav next"{{action "nextPage" model.pageIds.nextPage}}>next</button>
+{{/if}}
+</div>
+</div>
+{{outlet}}

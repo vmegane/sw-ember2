@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import '_reset.scss';
+
+body, html {
+    background: linear-gradient(to bottom right,black, rgba( 59, 64, 63,1));
+    font-family: 'Roboto Condensed', sans-serif;
+    color:  #d4ebee ;
+}
+
+.header {
+    width: 100%;
+    background:  rgb(5, 204, 154);
+    padding: 18px 12px 10px 18px;
+    
+}
+.footer {
+    width: 100%;
+    background:  rgb(12, 12, 12);
+    padding: 10px 12px 10px 18px;
+}
+
+
+.header-text {
+    font-size: 3em;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.wrapper {
+    box-align: center;
+    margin: auto;
+    background: #000;
+    padding-bottom: 10px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        width: 70%;
+        max-width: 800px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin background-theme($color) {
+    @for $index from 0 through 9 {
+        &.theme-#{$index} {
+            background: lighten($color, $index * 2%);
+        }
+    }
+}
+
+.person-wrapper {
+    padding: 10px;
+    border-radius: 5px;
+    width: 85%;
+    margin: 5px;
+    @include background-theme(#000a08);
+}
+
+
+.person-wrapper-records {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap-reverse;
+    align-content: flex-start;
+    justify-content: space-between;
+    
+    span {
+        &.label {
+        font-size: 0.7em;
+        }
+        &.content {
+            @media (min-width: 768px) {
+                font-size: 1.75em;
+                font-weight: 700;
+            }
+        font-size: 1.5em;
+        font-weight: 500;
+        color: #fff;
+        }
+    }
+   
+ 
+
+}
+.btn {
+    &.btn-details {
+        border: 0;
+        background: transparent;
+        color:rgb(5, 204, 154);
+        @media (max-width: 768px) {
+            width: 60px;
+            height: 60px;
+            background-color: rgb(5, 204, 154);
+            color:rgb(188, 214, 208);
+            border-radius: 5px;
+               }
+        @media (min-width: 768px) {
+            width: 80px;
+            &:hover {
+                color: rgb(5, 204, 154);
+                border-bottom: 2px solid rgb(5, 204, 154); 
+                       
+            }   
+        }
+        
+        
+    }
+    &.btn-nav {
+        border: 0;
+        background-color: rgb(5, 204, 154);
+        color:rgb(17, 20, 20);
+        &.prev {
+            border-radius: 5px 0 0 5px;
+        }
+        &.next {
+            border-radius: 0 5px 5px 0;
+        }
+        border-radius: 5px;
+        @media (max-width: 768px) {
+            width: 60px;
+            height: 60px;
+            background-color: rgb(5, 204, 154);
+            color:rgb(188, 214, 208);
+            border-radius: 5px;
+               }
+        @media (min-width: 768px) {
+            width: 80px;
+            &:hover {
+                color: rgb(190, 233, 222);
+                       
+            }   
+        }
+        
+        
+    }
+    &.disabled {
+        background-color: rgb(40, 59, 56);
+        &:hover {
+            color: rgb(17, 20, 20);}
+    }
+   
+    
+}
+
+.person-wrapper-details {
+    padding: 20px;
+    width: 100%;
+    background-color: black;
+    ul,li {
+        list-style: none;
+        padding-left: 0; 
+        &.inner {
+            li{ 
+                margin: 2px;
+                padding: 2px 5px 2px 10px;
+                max-width: 300px;
+                border-radius: 3px;
+                text-align: left;
+                @include background-theme(#081d19);
+                &::before {
+                    display: inline;
+                    content: '↳';
+                }
+            }
+        }
+        
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    max-width: 300px;
+    @media (min-width: 768px) {
+    justify-content: flex-start  }
+}
